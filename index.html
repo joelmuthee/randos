@@ -270,6 +270,11 @@
       object-fit: cover;
       object-position: center;
       display: block;
+      animation: heroPan 16s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    @keyframes heroPan {
+      from { transform: scale(1.1) translate(1.5%, 1%); }
+      to   { transform: scale(1)   translate(0, 0); }
     }
     .hero-bg::after {
       content: '';
