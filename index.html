@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Randos Consult Limited — Electrical & Mechanical Engineering</title>
+  <meta name="description" content="Randos Consult Limited is a leading Electrical and Mechanical Engineering Consultancy based in Nairobi, Kenya, serving East and Central Africa." />
+
+  <!-- Open Graph / WhatsApp / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Randos Consult Limited — Engineering Consultancy" />
+  <meta property="og:description" content="Innovative, Quality and Effective engineering design solutions across Kenya, East Africa and Central Africa." />
+  <meta property="og:image" content="https://randosconsult.co.ke/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://randosconsult.co.ke/" />
+  <meta property="og:site_name" content="Randos Consult Limited" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://randosconsult.co.ke/og-image.jpg" />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────── */
+    :root {
+      --white:    #FFFFFF;
+      --bg:       #F6F5F3;
+      --bg2:      #EFEDE9;
+      --ink:      #1A1714;
+      --ink2:     #3D3830;
+      --muted:    #7C7469;
+      --line:     #DDD9D2;
+      --rust:     #C24D2C;
+      --rust-dk:  #A63D22;
+      --rust-lt:  #F0E8E4;
+      --navy:     #1A2744;
+      --ff-serif: 'Outfit', system-ui, sans-serif;
+      --ff-sans:  'DM Sans', system-ui, sans-serif;
+      --radius:   3px;
+      --ease:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ─── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-sans);
+      background: var(--white);
+      color: var(--ink2);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ─── UTILITY ─────────────────────────────────────────── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+    }
+    .tag::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--rust);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.exit { opacity: 0; transform: translateY(24px); }
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.32s; }
+
+    /* ─── NAVBAR ──────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      border-color: var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .nav-logo img { height: 38px; width: auto; }
+    .nav-logo-text { line-height: 1.15; }
+    .nav-logo-text .name {
+      font-family: var(--ff-sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo-text .sub {
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-btn {
+      background: var(--ink) !important;
+      color: var(--white) !important;
+      font-weight: 500 !important;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      font-size: 0.84rem !important;
+      transition: background 0.2s !important;
+    }
+    .nav-btn:hover { background: var(--rust) !important; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 202;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 1.5px;
+      background: var(--ink);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 210;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .nav-mobile.open {
+      display: flex;
+      opacity: 1;
+      pointer-events: all;
+    }
+    .nav-mobile a {
+      font-family: var(--ff-serif);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .nav-mobile a:hover { color: var(--rust); }
+    .nav-mobile .mob-cta {
+      font-family: var(--ff-sans) !important;
+      font-size: 1rem !important;
+      font-weight: 500 !important;
+      background: var(--ink);
+      color: var(--white) !important;
+      padding: 14px 40px;
+      border-radius: var(--radius);
+    }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      padding-top: 68px;
+    }
+    .hero-left {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px 80px 32px;
+      max-width: 660px;
+      margin-left: auto;
+    }
+    .hero-left .tag { margin-bottom: 32px; }
+    .hero-h1 {
+      font-family: var(--ff-serif);
+      font-weight: 700;
+      font-size: clamp(2.6rem, 4vw, 3.8rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--rust);
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 440px;
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 13px 26px;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover { background: var(--rust); transform: translateY(-1px); }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: var(--white);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 13px 22px;
+      border-radius: var(--radius);
+      transition: filter 0.2s, transform 0.2s;
+    }
+    .btn-whatsapp:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .hero-meta {
+      display: flex;
+      gap: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+    .hero-meta-item .num {
+      font-family: var(--ff-serif);
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .hero-meta-item .num span { color: var(--rust); }
+    .hero-meta-item .lbl {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 3px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* Hero right — photo panel */
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-right-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26,23,20,0.12) 0%, rgba(26,23,20,0.45) 100%);
+    }
+    .hero-right-badge {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      right: 40px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 4px;
+      padding: 20px 24px;
+    }
+    .hero-right-badge .badge-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 4px;
+    }
+    .hero-right-badge .badge-text {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    /* ─── SECTION SHARED ──────────────────────────────────── */
+    .section { padding: 100px 0; }
+    .section-head { margin-bottom: 56px; }
+    .section-head .tag { margin-bottom: 16px; }
+    .h2 {
+      font-family: var(--ff-serif);
+      font-weight: 700;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .h2 em { font-style: normal; color: var(--rust); }
+    .section-sub {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.75;
+      font-weight: 300;
+      margin-top: 14px;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    #services { background: var(--bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .svc-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 40px 32px 48px;
+      transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .svc-card:hover {
+      background: var(--bg);
+      border-color: var(--rust);
+      box-shadow: 0 4px 20px rgba(194,77,44,0.08);
+    }
+    .svc-num {
+      font-family: var(--ff-serif);
+      font-size: 0.8rem;
+      color: var(--line);
+      font-weight: 300;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .svc-icon {
+      width: 40px; height: 40px;
+      color: var(--rust);
+      margin-bottom: 20px;
+    }
+    .svc-title {
+      font-family: var(--ff-sans);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .svc-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .svc-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--rust);
+      margin-top: 20px;
+      letter-spacing: 0.04em;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .svc-card:hover .svc-arrow { opacity: 1; }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+    .about-img-accent {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      width: 48%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 5px solid var(--white);
+      border-radius: 2px;
+    }
+    .about-stamp {
+      position: absolute;
+      top: 28px;
+      left: -20px;
+      background: var(--rust);
+      color: #fff;
+      padding: 14px 18px;
+      border-radius: 2px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(194, 77, 44, 0.35);
+    }
+    .about-stamp .big {
+      font-family: var(--ff-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1;
+      display: block;
+    }
+    .about-stamp .sm {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      display: block;
+      margin-top: 2px;
+    }
+    .about-text p {
+      font-size: 1rem;
+      color: var(--ink2);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+    .about-text p strong { font-weight: 600; color: var(--ink); }
+    .about-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .about-card {
+      background: var(--bg);
+      border-left: 3px solid var(--rust);
+      padding: 18px 16px;
+    }
+    .about-card .lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .about-card p {
+      font-size: 0.83rem !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+      line-height: 1.6 !important;
+    }
+    .geo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      padding: 7px 14px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-radius: 100px;
+      margin-top: 24px;
+    }
+    .geo-pill svg { color: var(--rust); flex-shrink: 0; }
+
+    /* ─── VALUES ──────────────────────────────────────────── */
+    #values { background: var(--ink); }
+    .values-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+    .values-intro .h2 { color: var(--white); }
+    .values-intro .h2 em { color: var(--rust); }
+    .values-intro .section-sub { color: rgba(255,255,255,0.5); max-width: 380px; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .val-card {
+      background: #1F2540;
+      border-radius: 3px;
+      padding: 40px 28px 44px;
+      transition: background 0.25s;
+    }
+    .val-card:hover { background: #252c4a; }
+    .val-icon {
+      width: 44px; height: 44px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: border-color 0.2s;
+    }
+    .val-card:hover .val-icon { border-color: var(--rust); }
+    .val-icon svg { color: var(--rust); }
+    .val-title {
+      font-family: var(--ff-serif);
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 10px;
+      font-style: normal;
+    }
+    .val-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── TEAM ────────────────────────────────────────────── */
+    #team { background: var(--bg); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .team-card:hover {
+      box-shadow: 0 8px 32px rgba(26,23,20,0.1);
+      transform: translateY(-4px);
+    }
+    .team-photo {
+      aspect-ratio: 1;
+      background: var(--bg2);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .team-initials {
+      font-family: var(--ff-serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .team-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+    .team-info { padding: 18px 18px 22px; }
+    .team-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .team-name {
+      font-family: var(--ff-sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .team-dept {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* ─── TESTIMONIALS ────────────────────────────────────── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testi-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 36px 32px;
+      position: relative;
+    }
+    .testi-quote {
+      font-family: var(--ff-serif);
+      font-size: 3.5rem;
+      line-height: 0.7;
+      color: var(--rust);
+      opacity: 0.3;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .testi-text {
+      font-size: 0.93rem;
+      color: var(--ink2);
+      line-height: 1.8;
+      font-weight: 300;
+      font-style: normal;
+      margin-bottom: 24px;
+    }
+    .testi-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 20px;
+    }
+    .star { color: var(--rust); font-size: 0.8rem; }
+    .testi-hr { border: none; border-top: 1px solid var(--line); margin-bottom: 18px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-av {
+      width: 40px; height: 40px;
+      background: var(--rust-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      color: var(--rust);
+      font-style: italic;
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .testi-co {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    #contact { background: var(--bg); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-desc {
+      font-size: 0.98rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+      margin: 18px 0 40px;
+      max-width: 360px;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 24px; }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+    .c-icon {
+      width: 40px; height: 40px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rust);
+      flex-shrink: 0;
+    }
+    .c-lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .c-val {
+      font-size: 0.9rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .c-val a {
+      transition: color 0.2s;
+      text-decoration: underline;
+      text-decoration-color: rgba(124,116,105,0.35);
+      text-underline-offset: 3px;
+    }
+    .c-val a:hover {
+      color: var(--rust);
+      text-decoration-color: var(--rust);
+    }
+    .wa-strip {
+      margin-top: 36px;
+      background: #075E54;
+      border-radius: 3px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .wa-strip .lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2px;
+    }
+    .wa-strip .msg {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #fff;
+    }
+    .wa-btn-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .wa-btn-sm:hover { background: rgba(255,255,255,0.22); }
+
+    /* Form */
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 44px 40px;
+    }
+    .form-head { margin-bottom: 32px; }
+    .form-head h3 {
+      font-family: var(--ff-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      font-style: normal;
+    }
+    .form-head p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .fg { margin-bottom: 18px; }
+    .fg label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+    .fg input, .fg select, .fg textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      font-family: var(--ff-sans);
+      font-size: 0.92rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: var(--muted); }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--ink); }
+    .fg textarea { resize: vertical; min-height: 110px; }
+    .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      width: 100%;
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--ff-sans);
+      font-weight: 500;
+      font-size: 0.92rem;
+      padding: 13px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s;
+      letter-spacing: 0.02em;
+      margin-top: 6px;
+    }
+    .form-submit:hover { background: var(--rust); }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 72px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+    .footer-brand img { height: 40px; margin-bottom: 16px; }
+    .footer-brand p {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 270px;
+    }
+    .footer-col-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials a {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      border-color: var(--rust);
+      color: var(--rust);
+    }
+
+    /* Floating share bar */
+    .share-bar {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 150;
+    }
+    .share-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      transition: transform 0.2s, opacity 0.2s;
+      opacity: 0.82;
+    }
+    .share-btn:hover { transform: scale(1.12); opacity: 1; }
+    .share-btn.wa  { background: #25D366; }
+    .share-btn.li  { background: #0A66C2; }
+    .share-btn.fb  { background: #1877F2; }
+    .share-btn.tw  { background: #000; }
+    .share-label {
+      font-family: var(--ff-sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 1100px) { .share-bar { display: none; } }
+
+    /* Floating WA */
+    .float-wa {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 52px; height: 52px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+      z-index: 300;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .float-wa:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.55);
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-left > * {
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) forwards;
+    }
+    .hero-left .tag            { animation-delay: 0.15s; }
+    .hero-left .hero-h1        { animation-delay: 0.28s; }
+    .hero-left .hero-desc      { animation-delay: 0.40s; }
+    .hero-left .hero-actions   { animation-delay: 0.52s; }
+    .hero-left .hero-meta      { animation-delay: 0.64s; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { height: 420px; order: -1; }
+      .hero-left { max-width: 100%; padding: 52px 40px 60px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-accent { display: none; }
+      .about-stamp { left: 20px; }
+      .values-intro { grid-template-columns: 1fr; gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-left { padding: 44px 24px 52px; }
+      .hero-right { height: 300px; }
+      .hero-h1 { font-size: clamp(2rem, 9vw, 3rem); }
+      .hero-meta { flex-wrap: wrap; gap: 20px 32px; }
+      .hero-meta-item .num { font-size: 1.6rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .fg-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 28px 22px; }
+      .section { padding: 64px 0; }
+      .wa-strip { flex-direction: column; align-items: flex-start; }
+      .section-head { margin-bottom: 40px; }
+      .about-cards { grid-template-columns: 1fr; }
+      .svc-card { padding: 28px 24px 36px; }
+      .val-card { padding: 28px 20px 32px; }
+    }
+    @media (max-width: 480px) {
+      .hero-left { padding: 36px 20px 48px; }
+      .hero-right { height: 240px; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-whatsapp { width: 100%; justify-content: center; }
+      .hero-meta { gap: 16px 28px; }
+      .hero-meta-item .num { font-size: 1.5rem; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .container { padding: 0 18px; }
+      .section { padding: 52px 0; }
+      .h2 { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+      .nav-inner { padding: 0 18px; }
+      .float-wa { bottom: 20px; right: 20px; width: 46px; height: 46px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="Logo.png" alt="Randos Consult Limited" />
+      <div class="nav-logo-text">
+        <div class="name">Randos Consult</div>
+        <div class="sub">Engineering Consultancy</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact" class="nav-btn">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#services" class="mob-link">Services</a>
+  <a href="#about" class="mob-link">About</a>
+  <a href="#team" class="mob-link">Team</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="#contact" class="mob-cta">Get in Touch</a>
+</div>
+
+<!-- ─── HERO ─────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="tag">Nairobi, Kenya · Est. 2021</div>
+    <h1 class="hero-h1">
+      Engineering<br />
+      consultancy built<br />
+      for <em>East Africa</em>
+    </h1>
+    <p class="hero-desc">
+      Randos Consult Limited delivers electrical and mechanical engineering solutions across Kenya, East Africa and Central Africa — innovative, quality-driven, and effective.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Start a Project
+      </a>
+      <a href="https://wa.me/254722166313" target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="num"><span class="count" data-target="3">0</span><span>+</span></div>
+        <div class="lbl">Countries</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="num"><span class="count" data-target="6">0</span></div>
+        <div class="lbl">Disciplines</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="num"><span class="count" data-target="4">0</span></div>
+        <div class="lbl">Engineers</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="num"><span class="count" data-target="100">0</span><span>%</span></div>
+        <div class="lbl">Satisfaction</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="hero.jpg" alt="Randos Consult engineers on a project site" />
+    <div class="hero-right-overlay"></div>
+    <div class="hero-right-badge">
+      <div class="badge-label">Our Mission</div>
+      <div class="badge-text">"To provide Innovative, Quality and Effective engineering design solutions."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─────────────────────────────────────────────── -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">What We Do</div>
+      <h2 class="h2">Full-spectrum <em>engineering</em><br />consultancy services</h2>
+      <p class="section-sub">From pre-contract planning to complex installations — precision across every discipline.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card reveal">
+        <div class="svc-num">01</div>
+        <svg class="svc-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg>
+        <div class="svc-title">Pre-Contract &amp; Contract Management</div>
+        <p class="svc-desc">Comprehensive pre-contract services, contract administration, and project management ensuring delivery on time and within budget.</p>
+        <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+
+      <div class="svc-card reveal d1">
+        <div class="svc-num">02</div>
+        <svg class="svc-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+        <div class="svc-title">Environmental, Health &amp; Safety</div>
+        <p class="svc-desc">Surveys and EHS management with specialist knowledge in building services — ensuring compliant, safe environments on every site.</p>
+        <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+
+      <div class="svc-card reveal d2">
+        <div class="svc-num">03</div>
+        <svg class="svc-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+        <div class="svc-title">Airport Facilities Engineering</div>
+        <p class="svc-desc">Specialist electrical and mechanical engineering for airport infrastructure — power systems, lighting, HVAC, and fire protection.</p>
+        <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-num">04</div>
+        <svg class="svc-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        <div class="svc-title">Electrical &amp; Electronic Engineering</div>
+        <p class="svc-desc">Power distribution, lighting design, protection systems, and energy monitoring for commercial and industrial projects of all scales.</p>
+        <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+
+      <div class="svc-card reveal d1">
+        <div class="svc-num">05</div>
+        <svg class="svc-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"/></svg>
+        <div class="svc-title">Telecoms &amp; Data Networks</div>
+        <p class="svc-desc">Telecommunications systems, data communications infrastructure, and computer networking solutions for modern connected facilities.</p>
+        <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+
+      <div class="svc-card reveal d2">
+        <div class="svc-num">06</div>
+        <svg class="svc-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
+        <div class="svc-title">Mechanical &amp; Industrial Engineering</div>
+        <p class="svc-desc">HVAC, plumbing, fire suppression, and industrial process installations for commercial, industrial, and mixed-use building projects.</p>
+        <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img
+          class="about-img-main"
+          src="hero.jpg"
+          alt="Randos Consult engineers reviewing project blueprints"
+          loading="lazy"
+          style="object-position: top center;"
+        />
+        <img
+          class="about-img-accent"
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=80&auto=format&fit=crop"
+          alt="Engineering construction site"
+          loading="lazy"
+        />
+        <div class="about-stamp">
+          <span class="big">EAC</span>
+          <span class="sm">East Africa<br/>Coverage</span>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="tag">About Us</div>
+        <h2 class="h2" style="margin-top:16px; margin-bottom:20px;">Built on precision,<br /><em>driven by expertise</em></h2>
+        <div class="about-text">
+          <p>
+            <strong>Randos Consult Limited</strong> is an Electrical and Mechanical Engineering Services Consultancy Firm with registered offices in Nairobi, Kenya. Our qualified engineers bring extensive training and hands-on experience to every project.
+          </p>
+          <p>
+            Fully equipped with licensed design software and advanced testing and energy monitoring equipment, we deliver consistently excellent results across Kenya, East Africa and Central Africa.
+          </p>
+        </div>
+        <div class="about-cards">
+          <div class="about-card">
+            <div class="lbl">Vision</div>
+            <p>To be the first-choice construction and property services consultancy — improving the built environment across East Africa.</p>
+          </div>
+          <div class="about-card">
+            <div class="lbl">Mission</div>
+            <p>To provide Innovative, Quality and Effective design solutions that consistently exceed client expectations.</p>
+          </div>
+        </div>
+        <div class="geo-pill">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Geokarma Basepoint, 2nd Floor, Suite 3, Off Eastern Bypass, Nairobi
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VALUES ────────────────────────────────────────────────── -->
+<section id="values" class="section">
+  <div class="container">
+    <div class="values-intro reveal">
+      <div>
+        <div class="tag" style="color:rgba(255,255,255,0.5);">
+          <span style="background:rgba(255,255,255,0.3)"></span>
+          Our Values
+        </div>
+        <h2 class="h2" style="margin-top:16px;">What we <em>stand for</em></h2>
+      </div>
+      <p class="section-sub" style="color:rgba(255,255,255,0.45); align-self:end;">
+        Four pillars that guide every project, every client relationship, and every decision we make.
+      </p>
+    </div>
+    <div class="values-grid">
+      <div class="val-card reveal">
+        <div class="val-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+        </div>
+        <div class="val-title">Service</div>
+        <p class="val-desc">Approachable and responsive — working to agreed programmes with a comprehensive understanding of your business needs.</p>
+      </div>
+      <div class="val-card reveal d1">
+        <div class="val-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+        </div>
+        <div class="val-title">Advice</div>
+        <p class="val-desc">Introducing new ideas and creative proposals — highlighting sustainability and maximising value for money on every engagement.</p>
+      </div>
+      <div class="val-card reveal d2">
+        <div class="val-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="val-title">Value</div>
+        <p class="val-desc">Constructive, innovative, and fully transparent in our fees — delivering maximum value through honest, reputable practice.</p>
+      </div>
+      <div class="val-card reveal d3">
+        <div class="val-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+        </div>
+        <div class="val-title">Relationships</div>
+        <p class="val-desc">Long-term partnerships built on trust — with senior management involvement and a relentless focus on client satisfaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TEAM ──────────────────────────────────────────────────── -->
+<section id="team" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="tag">Our Team</div>
+      <h2 class="h2">The engineers behind<br /><em>every project</em></h2>
+      <p class="section-sub">Qualified professionals with extensive training and deep expertise across electrical and mechanical disciplines.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo">
+          <div class="team-initials">M</div>
+        </div>
+        <div class="team-info">
+          <div class="team-role">Director · Project Manager</div>
+          <div class="team-name">Eng. Mutuku R.M.</div>
+          <div class="team-dept">Electrical Engineering</div>
+        </div>
+      </div>
+      <div class="team-card reveal d1">
+        <div class="team-photo">
+          <div class="team-initials">C</div>
+        </div>
+        <div class="team-info">
+          <div class="team-role">Senior Engineer</div>
+          <div class="team-name">Eng. Cherutich T.C.</div>
+          <div class="team-dept">Electrical Engineering</div>
+        </div>
+      </div>
+      <div class="team-card reveal d2">
+        <div class="team-photo">
+          <div class="team-initials">S</div>
+        </div>
+        <div class="team-info">
+          <div class="team-role">Project Manager</div>
+          <div class="team-name">Eng. Serem K.A.</div>
+          <div class="team-dept">Mechanical Engineering</div>
+        </div>
+      </div>
+      <div class="team-card reveal d3">
+        <div class="team-photo">
+          <div class="team-initials">M</div>
+        </div>
+        <div class="team-info">
+          <div class="team-role">Administration</div>
+          <div class="team-name">Moureen Muia</div>
+          <div class="team-dept">Administration Manager</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─────────────────────────────────────────── -->
+<section id="testimonials" class="section" style="background:var(--white);">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;">
+      <div class="tag" style="justify-content:center; display:flex;">Client Voices</div>
+      <h2 class="h2" style="margin-top:14px;">What our clients <em>say</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Best Building services consulting firm. I can 100% recommend it to any aspiring developers looking for a partner who truly understands the built environment.</p>
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <hr class="testi-hr" />
+        <div class="testi-author">
+          <div class="testi-av">L</div>
+          <div>
+            <div class="testi-name">Laura Varsani</div>
+            <div class="testi-co">Real Homes Inc.</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d1">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Very reliable and efficient consulting firm. Their attention to detail and commitment to delivering within agreed timelines is second to none. 100% confirmed.</p>
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <hr class="testi-hr" />
+        <div class="testi-author">
+          <div class="testi-av">J</div>
+          <div>
+            <div class="testi-name">J.W. Hudani</div>
+            <div class="testi-co">Concord Apartments Limited</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Best Mechanical and Electrical Consultancy firm I have worked with. Their engineers bring creativity and technical excellence together in a way that is rare to find.</p>
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <hr class="testi-hr" />
+        <div class="testi-author">
+          <div class="testi-av">A</div>
+          <div>
+            <div class="testi-name">Arch. June Mutambo</div>
+            <div class="testi-co">SpaceLink Associates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────────────── -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="tag">Contact</div>
+        <h2 class="h2" style="margin-top:16px;">Let's build<br /><em>something together</em></h2>
+        <p class="contact-desc">Ready to start your next project? Reach out and we'll respond within one business day.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="c-icon">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="c-lbl">Phone</div>
+              <div class="c-val"><a href="tel:+254722166313">+254 722 166 313</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="c-icon">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="c-lbl">Email</div>
+              <div class="c-val"><a href="mailto:info@randosconsult.co.ke">info@randosconsult.co.ke</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="c-icon">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <div class="c-lbl">Office</div>
+              <div class="c-val">Geokarma Basepoint, 2nd Floor, Suite 3<br />Off Eastern Bypass, Nairobi · P.O. Box 819, 00300</div>
+            </div>
+          </div>
+        </div>
+        <div class="wa-strip">
+          <div>
+            <div class="lbl">Fastest response</div>
+            <div class="msg">Message us on WhatsApp</div>
+          </div>
+          <a href="https://wa.me/254722166313" target="_blank" rel="noopener" class="wa-btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat Now
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal d2" style="display:flex; flex-direction:column; gap:20px;">
+      <div style="border-radius:3px; overflow:hidden; border:1px solid var(--line); height:220px; flex-shrink:0;">
+        <iframe
+          src="https://maps.google.com/maps?q=Geokarma+Basepoint+Building+Off+Eastern+Bypass+Nairobi+Kenya&output=embed&z=15"
+          width="100%" height="100%" style="border:0; display:block;" allowfullscreen loading="lazy"
+          title="Randos Consult Location"></iframe>
+      </div>
+      <div class="contact-form-wrap" style="margin:0;">
+        <div class="form-head">
+          <h3>Send a message</h3>
+          <p>We'll get back to you within one business day.</p>
+        </div>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="fg-row">
+            <div class="fg">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="John Kamau" required />
+            </div>
+            <div class="fg">
+              <label for="company">Company</label>
+              <input type="text" id="company" placeholder="Your firm" />
+            </div>
+          </div>
+          <div class="fg">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@company.com" required />
+          </div>
+          <div class="fg">
+            <label for="service">Service</label>
+            <select id="service">
+              <option value="" disabled selected>Select a service...</option>
+              <option>Pre-Contract &amp; Contract Management</option>
+              <option>Environmental, Health &amp; Safety</option>
+              <option>Airport Facilities Engineering</option>
+              <option>Electrical &amp; Electronic Engineering</option>
+              <option>Telecoms &amp; Data Networks</option>
+              <option>Mechanical &amp; Industrial Engineering</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">Send Message</button>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Logo.png" alt="Randos Consult Limited" />
+        <p>An Electrical and Mechanical Engineering Services Consultancy delivering innovative solutions across Kenya, East Africa and Central Africa.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Contract Management</a></li>
+          <li><a href="#services">EHS Surveys</a></li>
+          <li><a href="#services">Airport Engineering</a></li>
+          <li><a href="#services">Electrical Engineering</a></li>
+          <li><a href="#services">Telecoms &amp; Data</a></li>
+          <li><a href="#services">Mechanical Engineering</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#values">Values</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+254722166313">+254 722 166 313</a></li>
+          <li><a href="mailto:info@randosconsult.co.ke">info@randosconsult.co.ke</a></li>
+          <li style="color:rgba(255,255,255,0.3); font-size:0.84rem; line-height:1.6; cursor:default; font-weight:300;">Geokarma Basepoint,<br />2nd Floor, Suite 3,<br />Off Eastern Bypass, Nairobi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 Randos Consult Limited · Nairobi, Kenya</div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/randosconsult/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://x.com/randosconsult" target="_blank" rel="noopener" aria-label="X">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://wa.me/254722166313" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating share bar -->
+<div class="share-bar">
+  <div class="share-label">Share</div>
+  <a class="share-btn wa" href="https://wa.me/?text=Check%20out%20Randos%20Consult%20Limited%20%E2%80%94%20Electrical%20%26%20Mechanical%20Engineering%20Consultancy%20in%20Nairobi%3A%20https%3A%2F%2Frandosconsult.co.ke" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a class="share-btn li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Frandosconsult.co.ke" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a>
+  <a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frandosconsult.co.ke" target="_blank" rel="noopener" aria-label="Share on Facebook">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+  <a class="share-btn tw" href="https://twitter.com/intent/tweet?text=Randos%20Consult%20Limited%20%E2%80%94%20Electrical%20%26%20Mechanical%20Engineering%20Consultancy%2C%20Nairobi&url=https%3A%2F%2Frandosconsult.co.ke" target="_blank" rel="noopener" aria-label="Share on X">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+</div>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/254722166313" target="_blank" rel="noopener" class="float-wa" aria-label="WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('navbar');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), { passive: true });
+
+  // Hamburger
+  const hb = document.getElementById('hamburger');
+  const mob = document.getElementById('nav-mobile');
+  hb.addEventListener('click', () => {
+    const o = hb.classList.toggle('open');
+    mob.classList.toggle('open', o);
+    document.body.style.overflow = o ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hb.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  // Bi-directional scroll reveal
+  let lastY = window.scrollY;
+  const io = new IntersectionObserver(entries => {
+    const goingDown = window.scrollY >= lastY;
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      } else {
+        // Only reset if element is below the viewport when scrolling up,
+        // or above viewport when scrolling down — creates clean bi-directional fade
+        e.target.classList.remove('visible');
+      }
+    });
+    lastY = window.scrollY;
+  }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Stat counters — animate up from 0 on page load
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1600;
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      el.textContent = Math.round(eased * target);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  // Trigger after hero entrance animation completes (~900ms)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.count').forEach(animateCount);
+    }, 900);
+  });
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Message Sent!';
+      btn.style.background = '#22c55e';
+      setTimeout(() => {
+        document.getElementById('contactForm').reset();
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    }, 1200);
+  }
+</script>
+
+</body>
+</html>
