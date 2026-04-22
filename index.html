@@ -882,6 +882,80 @@
       letter-spacing: 0.02em;
     }
 
+    /* ── HOVER EFFECTS ──────────────────────────── */
+
+    /* Nav links — underline slides in from left */
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--rust);
+      border-radius: 2px;
+      transition: width 0.25s var(--ease);
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Service cards — icon tilts on hover */
+    .svc-icon-wrap { transition: background 0.3s, transform 0.3s var(--ease); }
+    .svc-card:hover .svc-icon-wrap { transform: rotate(-6deg) scale(1.1); }
+
+    /* Team cards — teal wash over photo + initials brighten */
+    .team-photo::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(75,189,212,0);
+      z-index: 1;
+      transition: background 0.35s;
+    }
+    .team-card:hover .team-photo::before { background: rgba(75,189,212,0.12); }
+    .team-initials { transition: color 0.3s; }
+    .team-card:hover .team-initials { color: rgba(255,255,255,0.65); }
+
+    /* Testimonial cards — lift + border flash */
+    .testi-card { transition: transform 0.3s var(--ease), box-shadow 0.3s, border-color 0.3s; }
+    .testi-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(26,23,20,0.1); border-color: var(--rust); }
+    .testi-card:first-child:hover { box-shadow: 0 12px 36px rgba(75,189,212,0.2); }
+
+    /* About cards — lift */
+    .about-card { transition: transform 0.25s var(--ease), box-shadow 0.25s; }
+    .about-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(26,23,20,0.07); }
+
+    /* Geo pill — teal tint */
+    .geo-pill { transition: background 0.2s, border-color 0.2s, color 0.2s; cursor: default; }
+    .geo-pill:hover { background: var(--rust-lt); border-color: var(--rust); color: var(--rust-dk); }
+
+    /* Contact items — background highlight */
+    .contact-item { padding: 10px 12px; border-radius: 8px; margin: -10px -12px; transition: background 0.2s; }
+    .contact-item:hover { background: var(--white); }
+
+    /* Footer links — arrow nudge */
+    .footer-links a { display: inline-flex; align-items: center; transition: color 0.2s, gap 0.2s; }
+    .footer-links a::after { content: '→'; opacity: 0; font-size: 0.78rem; transform: translateX(-6px); transition: opacity 0.2s, transform 0.2s; }
+    .footer-links a:hover { gap: 6px; }
+    .footer-links a:hover::after { opacity: 1; transform: none; }
+
+    /* Footer socials — pop up */
+    .footer-socials a { transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s; }
+    .footer-socials a:hover { transform: translateY(-3px); }
+
+    /* Share buttons — glow */
+    .share-btn.wa:hover { box-shadow: 0 4px 16px rgba(37,211,102,0.5); }
+    .share-btn.li:hover { box-shadow: 0 4px 16px rgba(10,102,194,0.5); }
+    .share-btn.fb:hover { box-shadow: 0 4px 16px rgba(24,119,242,0.5); }
+    .share-btn.tw:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+
+    /* Hero stats — subtle brighten */
+    .hero-stat { transition: background 0.2s; cursor: default; }
+    .hero-stat:hover { background: rgba(255,255,255,0.04); }
+
+    /* Mobile CTA bar */
+    .mob-cta-bar-call, .mob-cta-bar-wa { transition: background 0.2s, transform 0.15s; }
+    .mob-cta-bar-call:hover, .mob-cta-bar-wa:hover { background: var(--bg2); transform: scale(0.97); }
+    .mob-cta-bar-main { transition: background 0.2s, transform 0.15s; }
+    .mob-cta-bar-main:hover { background: var(--rust-dk); transform: scale(0.98); }
+
     /* ── ANIMATIONS ─────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
