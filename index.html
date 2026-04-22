@@ -417,18 +417,19 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
+      gap: 20px;
     }
     .svc-card {
       background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
       padding: 40px 32px 44px;
-      transition: background 0.3s;
+      transition: background 0.3s, box-shadow 0.3s;
       position: relative;
       overflow: hidden;
+    }
+    .svc-card:hover {
+      box-shadow: 0 6px 24px rgba(75,189,212,0.1);
     }
     .svc-card::after {
       content: '';
